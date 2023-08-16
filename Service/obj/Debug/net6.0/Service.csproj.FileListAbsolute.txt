@@ -1,0 +1,14 @@
+D:\Back-END .NET\RestaurantReserve\Service\bin\Debug\net6.0\Service.deps.json
+D:\Back-END .NET\RestaurantReserve\Service\bin\Debug\net6.0\Service.dll
+D:\Back-END .NET\RestaurantReserve\Service\bin\Debug\net6.0\Service.pdb
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.csproj.AssemblyReference.cache
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.AssemblyInfoInputs.cache
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.AssemblyInfo.cs
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.csproj.CoreCompileInputs.cache
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.dll
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\refint\Service.dll
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.pdb
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\ref\Service.dll
+D:\Back-END .NET\RestaurantReserve\Service\bin\Debug\net6.0\Service.runtimeconfig.json
+D:\Back-END .NET\RestaurantReserve\Service\obj\Debug\net6.0\Service.genruntimeconfig.cache
