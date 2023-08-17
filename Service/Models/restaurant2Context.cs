@@ -26,6 +26,7 @@ namespace Service.Models
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         public virtual DbSet<Reservation> Reservations { get; set; }
+        public virtual DbSet<ReserveDetail> ReserveDetails { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<TablesRe> TablesRes { get; set; }
 
@@ -55,7 +56,7 @@ namespace Service.Models
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.Aid)
-                    .HasName("PK__Account__DE508E2EFC02DB98");
+                    .HasName("PK__Account__DE508E2E74FF2595");
 
                 entity.ToTable("Account");
 
@@ -84,7 +85,7 @@ namespace Service.Models
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.Cid)
-                    .HasName("PK__Customer__D837D05F80E356FE");
+                    .HasName("PK__Customer__D837D05FD82F0C9A");
 
                 entity.ToTable("Customer");
 
@@ -107,7 +108,7 @@ namespace Service.Models
             modelBuilder.Entity<DepositCate>(entity =>
             {
                 entity.HasKey(e => e.DepositId)
-                    .HasName("PK__DepositC__AB60DF71F605598B");
+                    .HasName("PK__DepositC__AB60DF7178398BE0");
 
                 entity.ToTable("DepositCate");
 
@@ -117,7 +118,7 @@ namespace Service.Models
             modelBuilder.Entity<Food>(entity =>
             {
                 entity.HasKey(e => e.Fid)
-                    .HasName("PK__Food__D9908D64BB851ADE");
+                    .HasName("PK__Food__D9908D6458FEB036");
 
                 entity.ToTable("Food");
 
@@ -137,13 +138,13 @@ namespace Service.Models
                 entity.HasOne(d => d.Cate)
                     .WithMany(p => p.Foods)
                     .HasForeignKey(d => d.Cateid)
-                    .HasConstraintName("FK__Food__cateid__4BAC3F29");
+                    .HasConstraintName("FK__Food__cateid__4D94879B");
             });
 
             modelBuilder.Entity<FoodCategory>(entity =>
             {
                 entity.HasKey(e => e.Cateid)
-                    .HasName("PK__FoodCate__A88C49CC72F23AAD");
+                    .HasName("PK__FoodCate__A88C49CC01407D89");
 
                 entity.ToTable("FoodCategory");
 
@@ -157,7 +158,7 @@ namespace Service.Models
             modelBuilder.Entity<Order>(entity =>
             {
                 entity.HasKey(e => e.Oid)
-                    .HasName("PK__Orders__C2FFCF13650D53A8");
+                    .HasName("PK__Orders__C2FFCF1395D671D6");
 
                 entity.Property(e => e.Oid).HasColumnName("oid");
 
@@ -174,7 +175,7 @@ namespace Service.Models
                 entity.HasOne(d => d.RidNavigation)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.Rid)
-                    .HasConstraintName("FK__Orders__rid__46E78A0C");
+                    .HasConstraintName("FK__Orders__rid__48CFD27E");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -196,18 +197,18 @@ namespace Service.Models
                 entity.HasOne(d => d.FidNavigation)
                     .WithMany()
                     .HasForeignKey(d => d.Fid)
-                    .HasConstraintName("FK__OrderDetail__fid__4E88ABD4");
+                    .HasConstraintName("FK__OrderDetail__fid__5070F446");
 
                 entity.HasOne(d => d.Od)
                     .WithMany()
                     .HasForeignKey(d => d.Odid)
-                    .HasConstraintName("FK__OrderDetai__odid__4D94879B");
+                    .HasConstraintName("FK__OrderDetai__odid__4F7CD00D");
             });
 
             modelBuilder.Entity<Reservation>(entity =>
             {
                 entity.HasKey(e => e.Rid)
-                    .HasName("PK__Reservat__C2B7EDE88E492575");
+                    .HasName("PK__Reservat__C2B7EDE8C6AF7DA6");
 
                 entity.ToTable("Reservation");
 
@@ -231,12 +232,10 @@ namespace Service.Models
                     .HasColumnType("datetime")
                     .HasColumnName("res_date");
 
-                entity.Property(e => e.Tid).HasColumnName("tid");
-
                 entity.HasOne(d => d.AidNavigation)
                     .WithMany(p => p.Reservations)
                     .HasForeignKey(d => d.Aid)
-                    .HasConstraintName("FK__Reservation__aid__440B1D61");
+                    .HasConstraintName("FK__Reservation__aid__4316F928");
 
                 entity.HasOne(d => d.CidNavigation)
                     .WithMany(p => p.Reservations)
@@ -247,11 +246,27 @@ namespace Service.Models
                     .WithMany(p => p.Reservations)
                     .HasForeignKey(d => d.DepositType)
                     .HasConstraintName("FK__Reservati__depos__412EB0B6");
+            });
+
+            modelBuilder.Entity<ReserveDetail>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("ReserveDetail");
+
+                entity.Property(e => e.Rid).HasColumnName("rid");
+
+                entity.Property(e => e.Tid).HasColumnName("tid");
+
+                entity.HasOne(d => d.RidNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.Rid)
+                    .HasConstraintName("FK__ReserveDeta__rid__44FF419A");
 
                 entity.HasOne(d => d.TidNavigation)
-                    .WithMany(p => p.Reservations)
+                    .WithMany()
                     .HasForeignKey(d => d.Tid)
-                    .HasConstraintName("FK__Reservation__tid__4316F928");
+                    .HasConstraintName("FK__ReserveDeta__tid__45F365D3");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -267,7 +282,7 @@ namespace Service.Models
             modelBuilder.Entity<TablesRe>(entity =>
             {
                 entity.HasKey(e => e.Tid)
-                    .HasName("PK__TablesRe__DC105B0F9671F073");
+                    .HasName("PK__TablesRe__DC105B0FF48F61E2");
 
                 entity.Property(e => e.Tid)
                     .ValueGeneratedNever()

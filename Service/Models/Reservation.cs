@@ -15,7 +15,6 @@ namespace Service.Models
         public int Rid { get; set; }
         public int? Oid { get; set; }
         public int? Cid { get; set; }
-        public int? Tid { get; set; }
         public int? Aid { get; set; }
         public DateTime? ResDate { get; set; }
         public int? NumGuest { get; set; }
@@ -25,7 +24,6 @@ namespace Service.Models
         public virtual Account AidNavigation { get; set; }
         public virtual Customer CidNavigation { get; set; }
         public virtual DepositCate DepositTypeNavigation { get; set; }
-        public virtual TablesRe TidNavigation { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
